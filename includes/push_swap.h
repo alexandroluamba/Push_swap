@@ -6,7 +6,7 @@
 /*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:25:04 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 15:06:22 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 15:25:12 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,19 @@
 # include <stdlib.h>
 # include <unistd.h>
 #include <limits.h>
+
+typedef struct s_opts
+{
+	int	flag_simple;
+	int	flag_medium;
+	int	flag_complex;
+	int	flag_adaptive;
+	int	flag_bench;
+	int	start_index; /* Indica em que índice de argv começam os números */
+}	t_opts;
+
+/* Protótipo da função de parsing de flags */
+int	parse_flags(int argc, char **argv, t_opts *opts);
 
 typedef struct s_stack
 {

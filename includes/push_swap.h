@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/31 15:03:35 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 15:03:36 by tmachado         ###   ########.fr       */
+/*   Created: 2026/08/31 15:39:56 by tmachado          #+#    #+#             */
+/*   Updated: 2026/08/31 15:39:59 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,19 @@
 # include <stdlib.h>
 # include <unistd.h>
 #include <limits.h>
+
+typedef struct s_opts
+{
+	int	flag_simple;
+	int	flag_medium;
+	int	flag_complex;
+	int	flag_adaptive;
+	int	flag_bench;
+	int	start_index; /* Indica em que índice de argv começam os números */
+}	t_opts;
+
+/* Protótipo da função de parsing de flags */
+int	parse_flags(int argc, char **argv, t_opts *opts);
 
 typedef struct s_stack
 {
@@ -44,5 +57,11 @@ void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
+void	index_stack(t_stack *a);
+double	compute_disorder(t_stack *a);
+void	sort_simple(t_stack **a, t_stack **b);
+void	sort_medium(t_stack **a, t_stack **b);
+void	sort_complex(t_stack **a, t_stack **b);
+void	sort_adaptive(t_stack **a, t_stack **b);
 
 #endif

@@ -8,9 +8,9 @@
 
 typedef struct s_stack
 {
-    int             value;   // o número
-    int             index;   // posição normalizada 0..n-1 (usamos mais tarde)
-    struct s_stack  *next;   // próximo nó (lista simples)
+    int             value;
+    int             index;
+    struct s_stack  *next;
 }   t_stack;
 
 t_stack	*new_node(int value);

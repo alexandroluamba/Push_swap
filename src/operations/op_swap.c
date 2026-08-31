@@ -6,7 +6,7 @@
 /*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:23:43 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 14:23:44 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/08/31 15:59:09 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void sa(t_stack **a)
 	primero->next = segundo->next;
 	segundo->next = primero;
 	*a = segundo;
+	write(1, "sa\n", 3);
 }
 
 void sb(t_stack **b)
@@ -38,10 +39,12 @@ void sb(t_stack **b)
 	primero->next = segundo->next;
 	segundo->next = primero;
 	*b = segundo;
+	write(1, "sb\n", 3);
 }
 
 void	ss(t_stack **a, t_stack **b)
 {
 	sa(a);
 	sb(b);
+	write(1, "ss\n", 3);
 }

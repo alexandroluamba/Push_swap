@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_medium.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:27:03 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 15:27:04 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 15:53:50 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	ft_sqrt(int number)
-{
-	int	i;
-
-	if (number <= 0)
-		return (0);
-	i = 1;
-	while (i * i <= number)
-		i++;
-	return (i - 1);
-}
 
 static void	push_chunks_to_b(t_stack **a, t_stack **b, int chunk_size)
 {
@@ -61,7 +49,7 @@ void	sort_medium(t_stack **a, t_stack **b)
 	push_chunks_to_b(a, b, chunk_size);
 	while (*b)
 	{
-		max_pos = find_min_pos(*b); // Reaproveita ou busca o maior índice em B
+		max_pos = find_max_pos(*b); // Reaproveita ou busca o maior índice em B
 		// Traz o maior elemento de B para o topo e devolve a A
 		size = stack_size(*b);
 		if (max_pos <= size / 2)

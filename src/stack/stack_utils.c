@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:04:03 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 15:03:20 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 15:49:31 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,30 +73,30 @@ void	index_stack(t_stack *a)
 }
 
 /* Calcula o grau de desordem D (0.0 = totalmente ordenada, 1.0 = invertida) */
-double	compute_disorder(t_stack *a)
-{
-	t_stack	*i;
-	t_stack	*j;
-	long	inversions;
-	long	total_pairs;
-	int		size;
 
-	if (!a || !a->next)
-		return (0.0);
-	inversions = 0;
-	total_pairs = 0;
-	i = a;
-	while (i)
+
+int	find_max_pos(t_stack *stack)
+{
+	int		max_val;
+	int		max_pos;
+	int		current_pos;
+	t_stack	*tmp;
+
+	if (!stack)
+		return (0);
+	max_val = stack->value;
+	max_pos = 0;
+	current_pos = 0;
+	tmp = stack;
+	while (tmp)
 	{
-		j = i->next;
-		while (j)
+		if (tmp->value > max_val)
 		{
-			if (i->value > j->value)
-				inversions++;
-			total_pairs++;
-			j = j->next;
+			max_val = tmp->value;
+			max_pos = current_pos;
 		}
-		i = i->next;
+		current_pos++;
+		tmp = tmp->next;
 	}
-	return ((double)inversions / (double)total_pairs);
+	return (max_pos);
 }

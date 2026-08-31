@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:03:28 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 15:03:20 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 16:25:02 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,43 +35,6 @@ long	ft_atol(const char *str)
 		i++;
 	}
 	return (resultado * sinal);
-}
-
-t_stack	*build_stack(char **argv, int start, int argc)
-{
-	t_stack	*a;
-	t_stack	*node;
-	int		i;
-	long	num;
-
-	a = NULL;
-	i = argc - 1;
-	while (i >= start)
-	{
-		if (!is_num_valid(argv[i]))
-		{
-			free_stack(&a);
-			write(2, "Error\n", 6);
-			return (NULL);
-		}
-		num = ft_atol(argv[i]);
-		if (num < INT_MIN || num > INT_MAX || tem_duplicado(a, (int)num))
-		{
-			free_stack(&a);
-			write(2, "Error\n", 6);
-			return (NULL);
-		}
-		
-		node = new_node((int)num);
-		if (!node)
-		{
-			free_stack(&a);
-			return (NULL);
-		}
-		add_to_top(&a, node);
-		i--;
-	}
-	return (a);
 }
 
 int		is_num_valid(char *str)
@@ -104,4 +67,60 @@ int	tem_duplicado(t_stack *a, int n)
 		a = a->next;
 	}
 	return (0);
+}
+
+/* Função auxiliar para converter, validar e inserir cada token na pilha */
+static int	parse_and_push(t_stack **a, char *str)
+{
+	long	num;
+
+	if (!is_num_valid(str))
+		return (0);
+	num = atol(str);
+	if (num < INT_MIN || num > INT_MAX)
+		return (0);
+	if (tem_duplicado(*a, (int)num))
+		return (0);
+	add_to_top(a, new_node((int)num));
+	return (1);
+}
+
+t_stack	*build_stack(char **argv, int start, int argc)
+{
+	t_stack	*a;
+	char	**split_args;
+	int		i;
+	int		j;
+
+	a = NULL;
+	i = start;
+	while (i < argc)
+	{
+		/* 1. Faz o split do argumento atual por espaços */
+		split_args = ft_split(argv[i], ' ');
+		if (!split_args || !split_args[0])
+		{
+			free_matrix(split_args);
+			free_stack(&a);
+			return (NULL);
+		}
+		
+		/* 2. Processa cada número resultante do split */
+		j = 0;
+		while (split_args[j])
+		{
+			if (!parse_and_push(&a, split_args[j]))
+			{
+				free_matrix(split_args);
+				free_stack(&a);
+				return (NULL);
+			}
+			j++;
+		}
+		
+		/* 3. Liberta a memória da matriz criada pelo ft_split */
+		free_matrix(split_args);
+		i++;
+	}
+	return (a);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_adaptive.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:26:45 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 15:26:46 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 16:07:00 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ void	sort_adaptive(t_stack **a, t_stack **b)
 
 	if (!a || !*a || is_sorted(*a))
 		return ;
+	if (stack_size(*a) <= 5)
+	{
+		sort_small(a, b);
+		return ;
+	}
 	disorder = compute_disorder(*a);
 	if (disorder < 0.2)
 		sort_simple(a, b);

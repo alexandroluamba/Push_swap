@@ -6,7 +6,7 @@
 /*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:23:38 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 14:23:39 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/08/31 16:00:16 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	rra(t_stack **a)
 	penultimo->next = NULL;
 	ultimo->next = *a;
 	*a = ultimo;
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack **b)
@@ -42,9 +43,11 @@ void	rrb(t_stack **b)
 	penultimo->next = NULL;
 	ultimo->next = *b;
 	*b = ultimo;
+	write(1, "rrb\n", 4);
 }
 void	rrr(t_stack **a, t_stack **b)
 {
 	rra(a);
 	rrb(b);
+	write(1, "rrr\n", 4);
 }

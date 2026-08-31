@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:02:55 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 15:03:20 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 16:00:31 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	pa(t_stack **a, t_stack **b)
 	*b = (*b)->next;
 	tmp->next = *a;
 	*a = tmp;
+	write(1, "pa\n", 3);
 }
 
 void    pb(t_stack **a, t_stack **b)
@@ -34,4 +35,5 @@ void    pb(t_stack **a, t_stack **b)
 	*a = (*a)->next;
 	tmp->next = *b;
 	*b = tmp;
+	write(1, "pb\n", 3);
 }

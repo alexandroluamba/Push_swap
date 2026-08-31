@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:25:04 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 14:25:05 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/08/31 15:06:22 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,11 @@ void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
+void	index_stack(t_stack *a);
+double	compute_disorder(t_stack *a);
+void	sort_simple(t_stack **a, t_stack **b);
+void	sort_medium(t_stack **a, t_stack **b);
+void	sort_complex(t_stack **a, t_stack **b);
+void	sort_adaptive(t_stack **a, t_stack **b);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:03:28 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 16:25:02 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/08/31 17:18:32 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,42 +85,44 @@ static int	parse_and_push(t_stack **a, char *str)
 	return (1);
 }
 
-t_stack	*build_stack(char **argv, int start, int argc)
+t_stack *build_stack(char **argv, int start, int argc)
 {
-	t_stack	*a;
-	char	**split_args;
-	int		i;
-	int		j;
+    t_stack *a;
+    char    **split_args;
+    int     i;
+    int     j;
 
-	a = NULL;
-	i = start;
-	while (i < argc)
-	{
-		/* 1. Faz o split do argumento atual por espaços */
-		split_args = ft_split(argv[i], ' ');
-		if (!split_args || !split_args[0])
-		{
-			free_matrix(split_args);
-			free_stack(&a);
-			return (NULL);
-		}
-		
-		/* 2. Processa cada número resultante do split */
-		j = 0;
-		while (split_args[j])
-		{
-			if (!parse_and_push(&a, split_args[j]))
-			{
-				free_matrix(split_args);
-				free_stack(&a);
-				return (NULL);
-			}
-			j++;
-		}
-		
-		/* 3. Liberta a memória da matriz criada pelo ft_split */
-		free_matrix(split_args);
-		i++;
-	}
-	return (a);
+    a = NULL;
+    i = argc - 1; /* Começa no último argumento do terminal */
+    while (i >= start)
+    {
+        split_args = ft_split(argv[i], ' ');
+        if (!split_args || !split_args[0])
+        {
+            free_matrix(split_args);
+            free_stack(&a);
+            return (NULL);
+        }
+        
+        /* Conta quantos elementos existem no split para ir também do último ao primeiro */
+        j = 0;
+        while (split_args[j])
+            j++;
+        j--;
+        
+        while (j >= 0)
+        {
+            if (!parse_and_push(&a, split_args[j]))
+            {
+                free_matrix(split_args);
+                free_stack(&a);
+                return (NULL);
+            }
+            j--;
+        }
+        
+        free_matrix(split_args);
+        i--;
+    }
+    return (a);
 }

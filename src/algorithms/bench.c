@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bench.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/31 22:00:17 by tmachado          #+#    #+#             */
+/*   Updated: 2026/08/31 22:08:22 by tmachado         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
 	size_t	i;
+
 	if (!s)
 		return ;
 	i = 0;
@@ -21,7 +34,7 @@ static void	ft_putnbr_fd(int n, int fd)
 	nbr = n;
 	if (nbr < 0)
 	{
-		write(fd,"-", 1);
+		write(fd, "-", 1);
 		nbr = -nbr;
 	}
 	if (nbr >= 10)
@@ -29,7 +42,6 @@ static void	ft_putnbr_fd(int n, int fd)
 	c = (nbr % 10) + '0';
 	write(fd, &c, 1);
 }
-#include "push_swap.h"
 
 static const char	*get_strategy_name(t_opts *opts)
 {

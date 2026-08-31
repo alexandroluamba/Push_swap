@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_flags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:17:55 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 19:05:51 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 22:35:22 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	parse_flags(int argc, char **argv, t_opts *opts)
 	opts->flag_adaptive = 0;
 	opts->flag_bench = 0;
 	opts->total_ops = 0;
-	
 	i = 1;
 	while (i < argc && argv[i][0] == '-')
 	{
@@ -50,15 +49,13 @@ int	parse_flags(int argc, char **argv, t_opts *opts)
 		else if (ft_strcmp(argv[i], "--bench") == 0)
 			opts->flag_bench = 1;
 		else
-			return (0); /* Flag desconhecida -> Error */
+			return (0);
 		i++;
 	}
 	opts->start_index = i;
-
-	/* Validação: Não permite mais do que 1 flag de algoritmo ao mesmo tempo */
-	algo_count = opts->flag_simple + opts->flag_medium + opts->flag_complex + opts->flag_adaptive;
+	algo_count = opts->flag_simple + opts->flag_medium
+		+ opts->flag_complex + opts->flag_adaptive;
 	if (algo_count > 1)
-		return (0); /* Retorna 0 para o main.c imprimir Error\n */
-
+		return (0);
 	return (1);
 }

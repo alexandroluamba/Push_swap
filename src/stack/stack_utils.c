@@ -6,13 +6,13 @@
 /*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:04:03 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 15:49:31 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/08/31 22:49:58 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int stack_size(t_stack *stack)
+int	stack_size(t_stack *stack)
 {
 	int	count;
 
@@ -27,7 +27,7 @@ int stack_size(t_stack *stack)
 	return (count);
 }
 
-void print_stack(t_stack *stack)
+void	print_stack(t_stack *stack)
 {
 	if (!stack)
 		return ;
@@ -49,7 +49,6 @@ t_stack	*ft_lstlast(t_stack *lst)
 	return (lst);
 }
 
-/* Atribui a cada elemento um índice de 0 a (N - 1) com base no seu valor */
 void	index_stack(t_stack *a)
 {
 	t_stack	*current;
@@ -71,9 +70,6 @@ void	index_stack(t_stack *a)
 		current = current->next;
 	}
 }
-
-/* Calcula o grau de desordem D (0.0 = totalmente ordenada, 1.0 = invertida) */
-
 
 int	find_max_pos(t_stack *stack)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:03:28 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 17:18:32 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 22:41:37 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ long	ft_atol(const char *str)
 	return (resultado * sinal);
 }
 
-int		is_num_valid(char *str)
+int	is_num_valid(char *str)
 {
 	int	i;
 
@@ -55,7 +55,6 @@ int		is_num_valid(char *str)
 		i++;
 	}
 	return (1);
-
 }
 
 int	tem_duplicado(t_stack *a, int n)
@@ -69,7 +68,6 @@ int	tem_duplicado(t_stack *a, int n)
 	return (0);
 }
 
-/* Função auxiliar para converter, validar e inserir cada token na pilha */
 static int	parse_and_push(t_stack **a, char *str)
 {
 	long	num;
@@ -85,44 +83,40 @@ static int	parse_and_push(t_stack **a, char *str)
 	return (1);
 }
 
-t_stack *build_stack(char **argv, int start, int argc)
+t_stack	*build_stack(char **argv, int start, int argc)
 {
-    t_stack *a;
-    char    **split_args;
-    int     i;
-    int     j;
+	t_stack	*a;
+	char	**split_args;
+	int		i;
+	int		j;
 
-    a = NULL;
-    i = argc - 1; /* Começa no último argumento do terminal */
-    while (i >= start)
-    {
-        split_args = ft_split(argv[i], ' ');
-        if (!split_args || !split_args[0])
-        {
-            free_matrix(split_args);
-            free_stack(&a);
-            return (NULL);
-        }
-        
-        /* Conta quantos elementos existem no split para ir também do último ao primeiro */
-        j = 0;
-        while (split_args[j])
-            j++;
-        j--;
-        
-        while (j >= 0)
-        {
-            if (!parse_and_push(&a, split_args[j]))
-            {
-                free_matrix(split_args);
-                free_stack(&a);
-                return (NULL);
-            }
-            j--;
-        }
-        
-        free_matrix(split_args);
-        i--;
-    }
-    return (a);
+	a = NULL;
+	i = argc - 1;
+	while (i >= start)
+	{
+		split_args = ft_split(argv[i], ' ');
+		if (!split_args || !split_args[0])
+		{
+			free_matrix(split_args);
+			free_stack(&a);
+			return (NULL);
+		}
+		j = 0;
+		while (split_args[j])
+			j++;
+		j--;
+		while (j >= 0)
+		{
+			if (!parse_and_push(&a, split_args[j]))
+			{
+				free_matrix(split_args);
+				free_stack(&a);
+				return (NULL);
+			}
+			j--;
+		}
+		free_matrix(split_args);
+		i--;
+	}
+	return (a);
 }

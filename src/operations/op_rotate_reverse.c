@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_rotate_reverse.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:23:38 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 20:28:55 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 22:27:22 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	rra(t_stack **a, t_opts *opts)
 {
 	t_stack	*ultimo;
-	t_stack *penultimo;
+	t_stack	*penultimo;
 
 	if (!a || !*a || !(*a)->next)
 		return ;
 	penultimo = *a;
 	while (penultimo->next->next != NULL)
-    	penultimo = penultimo->next;
+		penultimo = penultimo->next;
 	ultimo = penultimo->next;
 	penultimo->next = NULL;
 	ultimo->next = *a;
@@ -29,9 +29,8 @@ void	rra(t_stack **a, t_opts *opts)
 	write(1, "rra\n", 4);
 	if (opts != NULL)
 	{
-        opts->total_ops++;
+		opts->total_ops++;
 		opts->ops_rra++;
-		
 	}
 }
 
@@ -52,11 +51,11 @@ void	rrb(t_stack **b, t_opts *opts)
 	write(1, "rrb\n", 4);
 	if (opts != NULL)
 	{
-        opts->total_ops++;
+		opts->total_ops++;
 		opts->ops_rrb++;
-		
 	}
 }
+
 void	rrr(t_stack **a, t_stack **b, t_opts *opts)
 {
 	rra(a, NULL);
@@ -64,8 +63,7 @@ void	rrr(t_stack **a, t_stack **b, t_opts *opts)
 	write(1, "rrr\n", 4);
 	if (opts != NULL)
 	{
-        opts->total_ops++;
+		opts->total_ops++;
 		opts->ops_rrr++;
-		
 	}
 }

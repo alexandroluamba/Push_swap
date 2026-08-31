@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:39:56 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 20:37:52 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 21:58:05 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-#include <limits.h>
+# include <limits.h>
 
 typedef struct s_opts
 {
@@ -25,8 +25,8 @@ typedef struct s_opts
 	int	flag_complex;
 	int	flag_adaptive;
 	int	flag_bench;
-	int	start_index; /* Indica em que índice de argv começam os números */
-	int total_ops;
+	int	start_index;
+	int	total_ops;
 	int	ops_sa;
 	int	ops_sb;
 	int	ops_ss;
@@ -40,19 +40,17 @@ typedef struct s_opts
 	int	ops_rrr;
 }	t_opts;
 
-/* Protótipo da função de parsing de flags */
-
 typedef struct s_stack
 {
-    int             value;
-    int             index;
-    struct s_stack  *next;
-}   t_stack;
+	int				value;
+	int				index;
+	struct s_stack	*next;
+}	t_stack;
 
 t_stack	*new_node(int value);
 void	add_to_top(t_stack **stack, t_stack *node);
 int		stack_size(t_stack *stack);
-int	parse_flags(int argc, char **argv, t_opts *opts);
+int		parse_flags(int argc, char **argv, t_opts *opts);
 int		is_num_valid(char *str);
 int		tem_duplicado(t_stack *a, int n);
 long	atol(const char *str);
@@ -62,8 +60,8 @@ t_stack	*ft_lstlast(t_stack *lst);
 void	sa(t_stack **a, t_opts *opts);
 void	sb(t_stack **b, t_opts *opts);
 void	ss(t_stack **a, t_stack **b, t_opts *opts);
-void    pa(t_stack **a, t_stack **b, t_opts *opts);
-void    pb(t_stack **a, t_stack **b, t_opts *opts);
+void	pa(t_stack **a, t_stack **b, t_opts *opts);
+void	pb(t_stack **a, t_stack **b, t_opts *opts);
 void	ra(t_stack **a, t_opts *opts);
 void	rb(t_stack **b, t_opts *opts);
 void	rr(t_stack **a, t_stack **b, t_opts *opts);
@@ -75,7 +73,7 @@ double	compute_disorder(t_stack *a);
 void	sort_simple(t_stack **a, t_stack **b, t_opts *opts);
 void	sort_medium(t_stack **a, t_stack **b, t_opts *opts);
 void	sort_complex(t_stack **a, t_stack **b, t_opts *opts);
-void    sort_adaptive(t_stack **a, t_stack **b, t_opts *opts);
+void	sort_adaptive(t_stack **a, t_stack **b, t_opts *opts);
 void	sort_three(t_stack **a, t_opts *opts);
 void	sort_small(t_stack **a, t_stack **b, t_opts *opts);
 void	free_stack(t_stack **stack);

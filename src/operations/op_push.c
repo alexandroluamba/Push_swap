@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:02:55 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 20:26:03 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 22:21:02 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,12 @@ void	pa(t_stack **a, t_stack **b, t_opts *opts)
 	write(1, "pa\n", 3);
 	if (opts != NULL)
 	{
-        opts->total_ops++;
+		opts->total_ops++;
 		opts->ops_pa++;
-		
 	}
 }
 
-void    pb(t_stack **a, t_stack **b, t_opts *opts)
+void	pb(t_stack **a, t_stack **b, t_opts *opts)
 {
 	t_stack	*tmp;
 
@@ -44,7 +43,7 @@ void    pb(t_stack **a, t_stack **b, t_opts *opts)
 	write(1, "pb\n", 3);
 	if (opts != NULL)
 	{
-        opts->total_ops++;
+		opts->total_ops++;
 		opts->ops_pb++;
 	}
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   op_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:23:43 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 20:30:38 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 22:30:41 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sa(t_stack **a, t_opts *opts)
+void	sa(t_stack **a, t_opts *opts)
 {
 	t_stack	*primero;
 	t_stack	*segundo;
@@ -27,13 +27,12 @@ void sa(t_stack **a, t_opts *opts)
 	write(1, "sa\n", 3);
 	if (opts != NULL)
 	{
-        opts->total_ops++;
+		opts->total_ops++;
 		opts->ops_sa++;
-		
 	}
 }
 
-void sb(t_stack **b, t_opts *opts)
+void	sb(t_stack **b, t_opts *opts)
 {
 	t_stack	*primero;
 	t_stack	*segundo;
@@ -48,8 +47,8 @@ void sb(t_stack **b, t_opts *opts)
 	write(1, "sb\n", 3);
 	if (opts != NULL)
 	{
-        opts->total_ops++;
-		opts->ops_sb++;	
+		opts->total_ops++;
+		opts->ops_sb++;
 	}
 }
 
@@ -60,8 +59,7 @@ void	ss(t_stack **a, t_stack **b, t_opts *opts)
 	write(1, "ss\n", 3);
 	if (opts != NULL)
 	{
-        opts->total_ops++;
+		opts->total_ops++;
 		opts->ops_ss++;
-		
 	}
 }

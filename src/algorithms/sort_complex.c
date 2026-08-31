@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_complex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:27:27 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 19:58:22 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 22:10:07 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,12 @@ void	sort_complex(t_stack **a, t_stack **b, t_opts *opts)
 		j = 0;
 		while (j < size)
 		{
-			// Verifica se o bit 'i' do índice é 1 ou 0
 			if (((*a)->index >> i) & 1)
 				ra(a, opts);
 			else
 				pb(a, b, opts);
 			j++;
 		}
-		// Esvazia totalmente B de volta para A
 		while (*b)
 			pa(a, b, opts);
 		i++;

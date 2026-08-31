@@ -4,6 +4,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+#include <limits.h>
 
 typedef struct s_stack
 {
@@ -15,6 +16,9 @@ typedef struct s_stack
 t_stack	*new_node(int value);
 void	add_to_top(t_stack **stack, t_stack *node);
 int		stack_size(t_stack *stack);
+int		is_num_valid(char *str);
+int		tem_duplicado(t_stack *a, int n);
+long	atol(const char *str);
 void	print_stack(t_stack *stack);
 t_stack	*build_stack(char **argv, int start, int argc);
 void	sa(t_stack **a);

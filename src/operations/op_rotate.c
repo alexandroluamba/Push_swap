@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   op_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 13:57:42 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 13:57:46 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/08/31 14:02:26 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack **a)
+void ia(t_stack **a)
 {
 	t_stack	*primeiro;
 	t_stack *ultimo;

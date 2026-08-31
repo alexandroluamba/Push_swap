@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   op_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:16:31 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 15:59:42 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/08/31 20:28:34 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ra(t_stack **a)
+void ra(t_stack **a, t_opts *opts)
 {
 	t_stack	*primeiro;
 	t_stack *ultimo;
@@ -25,9 +25,15 @@ void ra(t_stack **a)
 	ultimo = ft_lstlast(*a);
 	ultimo->next = primeiro;
 	write(1, "ra\n", 3);
+	if (opts != NULL)
+	{
+        opts->total_ops++;
+		opts->ops_ra++;
+		
+	}
 }
 
-void	rb(t_stack **b)
+void	rb(t_stack **b, t_opts *opts)
 {
 	t_stack	*primeiro;
 	t_stack	*ultimo;
@@ -40,11 +46,23 @@ void	rb(t_stack **b)
 	ultimo = ft_lstlast(*b);
 	ultimo->next = primeiro;
 	write(1, "rb\n", 3);
+	if (opts != NULL)
+	{
+        opts->total_ops++;
+		opts->ops_rb++;
+		
+	}
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b, t_opts *opts)
 {
-	ra(a);
-	rb(b);
+	ra(a, NULL);
+	rb(b, NULL);
 	write(1, "rr\n", 3);
+	if (opts != NULL)
+	{
+        opts->total_ops++;
+		opts->ops_rr++;
+		
+	}
 }

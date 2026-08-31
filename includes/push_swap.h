@@ -6,7 +6,7 @@
 /*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:39:56 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 17:15:24 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 20:37:52 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,18 @@ typedef struct s_opts
 	int	flag_adaptive;
 	int	flag_bench;
 	int	start_index; /* Indica em que índice de argv começam os números */
+	int total_ops;
+	int	ops_sa;
+	int	ops_sb;
+	int	ops_ss;
+	int	ops_pa;
+	int	ops_pb;
+	int	ops_ra;
+	int	ops_rb;
+	int	ops_rr;
+	int	ops_rra;
+	int	ops_rrb;
+	int	ops_rrr;
 }	t_opts;
 
 /* Protótipo da função de parsing de flags */
@@ -47,29 +59,32 @@ long	atol(const char *str);
 void	print_stack(t_stack *stack);
 t_stack	*build_stack(char **argv, int start, int argc);
 t_stack	*ft_lstlast(t_stack *lst);
-void	sa(t_stack **a);
-void	sb(t_stack **b);
-void	ss(t_stack **a, t_stack **b);
-void    pa(t_stack **a, t_stack **b);
-void    pb(t_stack **a, t_stack **b);
-void	ra(t_stack **a);
-void	rb(t_stack **b);
-void	rr(t_stack **a, t_stack **b);
-void	rra(t_stack **a);
-void	rrb(t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
+void	sa(t_stack **a, t_opts *opts);
+void	sb(t_stack **b, t_opts *opts);
+void	ss(t_stack **a, t_stack **b, t_opts *opts);
+void    pa(t_stack **a, t_stack **b, t_opts *opts);
+void    pb(t_stack **a, t_stack **b, t_opts *opts);
+void	ra(t_stack **a, t_opts *opts);
+void	rb(t_stack **b, t_opts *opts);
+void	rr(t_stack **a, t_stack **b, t_opts *opts);
+void	rra(t_stack **a, t_opts *opts);
+void	rrb(t_stack **b, t_opts *opts);
+void	rrr(t_stack **a, t_stack **b, t_opts *opts);
 void	index_stack(t_stack *a);
 double	compute_disorder(t_stack *a);
-void	sort_simple(t_stack **a, t_stack **b);
-void	sort_medium(t_stack **a, t_stack **b);
-void	sort_complex(t_stack **a, t_stack **b);
-void	sort_adaptive(t_stack **a, t_stack **b);
-void	sort_three(t_stack **a);
-void	sort_small(t_stack **a, t_stack **b);
+void	sort_simple(t_stack **a, t_stack **b, t_opts *opts);
+void	sort_medium(t_stack **a, t_stack **b, t_opts *opts);
+void	sort_complex(t_stack **a, t_stack **b, t_opts *opts);
+void    sort_adaptive(t_stack **a, t_stack **b, t_opts *opts);
+void	sort_three(t_stack **a, t_opts *opts);
+void	sort_small(t_stack **a, t_stack **b, t_opts *opts);
 void	free_stack(t_stack **stack);
 void	free_matrix(char **lst);
 char	**ft_split(char const *s, char c);
 int		is_sorted(t_stack *stack);
 int		find_max_pos(t_stack *stack);
+void	print_bench(t_opts *opts, double disorder_val);
+void	ft_putstr_fd(char *s, int fd);
+void	init_opts(t_opts *opts);
 
 #endif

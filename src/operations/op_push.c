@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   op_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:02:55 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 16:00:31 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/08/31 20:26:03 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b, t_opts *opts)
 {
 	t_stack	*tmp;
 
@@ -23,9 +23,15 @@ void	pa(t_stack **a, t_stack **b)
 	tmp->next = *a;
 	*a = tmp;
 	write(1, "pa\n", 3);
+	if (opts != NULL)
+	{
+        opts->total_ops++;
+		opts->ops_pa++;
+		
+	}
 }
 
-void    pb(t_stack **a, t_stack **b)
+void    pb(t_stack **a, t_stack **b, t_opts *opts)
 {
 	t_stack	*tmp;
 
@@ -36,4 +42,9 @@ void    pb(t_stack **a, t_stack **b)
 	tmp->next = *b;
 	*b = tmp;
 	write(1, "pb\n", 3);
+	if (opts != NULL)
+	{
+        opts->total_ops++;
+		opts->ops_pb++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:27:14 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 15:27:15 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 19:54:40 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	find_max(t_stack *a)
 	return (max);
 }
 
-void	sort_three(t_stack **a)
+void	sort_three(t_stack **a, t_opts *opts)
 {
 	int	max;
 
@@ -34,9 +34,9 @@ void	sort_three(t_stack **a)
 		return ;
 	max = find_max(*a);
 	if ((*a)->value == max)
-		ra(a);
+		ra(a, opts);
 	else if ((*a)->next->value == max)
-		rra(a);
+		rra(a, opts);
 	if ((*a)->value > (*a)->next->value)
-		sa(a);
+		sa(a, opts);
 }

@@ -1,0 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ops_bench_init.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/31 20:37:40 by amateus-          #+#    #+#             */
+/*   Updated: 2026/08/31 20:37:41 by amateus-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	init_opts(t_opts *opts)
+{
+	if (!opts)
+		return ;
+	opts->flag_bench = 0;
+	opts->flag_simple = 0;
+	opts->flag_medium = 0;
+	opts->flag_complex = 0;
+	opts->start_index = 1;
+	opts->total_ops = 0;
+	opts->ops_sa = 0;
+	opts->ops_sb = 0;
+	opts->ops_ss = 0;
+	opts->ops_pa = 0;
+	opts->ops_pb = 0;
+	opts->ops_ra = 0;
+	opts->ops_rb = 0;
+	opts->ops_rr = 0;
+	opts->ops_rra = 0;
+	opts->ops_rrb = 0;
+	opts->ops_rrr = 0;
+}

@@ -6,7 +6,7 @@
 /*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 16:07:41 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 16:33:13 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/08/31 19:55:00 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	find_min_pos(t_stack *a)
 	return (min_pos);
 }
 
-static void	sort_three_by_val(t_stack **a)
+static void	sort_three_by_val(t_stack **a, t_opts *opts)
 {
 	int	first;
 	int	second;
@@ -47,26 +47,25 @@ static void	sort_three_by_val(t_stack **a)
 	first = (*a)->value;
 	second = (*a)->next->value;
 	third = (*a)->next->next->value;
-
 	if (first > second && second < third && first < third)
-		sa(a);
+		sa(a, opts);
 	else if (first > second && second > third)
 	{
-		sa(a);
-		rra(a);
+		sa(a, opts);
+		rra(a, opts);
 	}
 	else if (first > second && second < third && first > third)
-		ra(a);
+		ra(a, opts);
 	else if (first < second && second > third && first < third)
 	{
-		sa(a);
-		ra(a);
+		sa(a, opts);
+		ra(a, opts);
 	}
 	else if (first < second && second > third && first > third)
-		rra(a);
+		rra(a, opts);
 }
 
-void	sort_small(t_stack **a, t_stack **b)
+void	sort_small(t_stack **a, t_stack **b, t_opts *opts)
 {
 	int	size;
 	int	min_pos;
@@ -74,12 +73,12 @@ void	sort_small(t_stack **a, t_stack **b)
 	size = stack_size(*a);
 	if (size == 2 && (*a)->value > (*a)->next->value)
 	{
-		sa(a);
+		sa(a, opts);
 		return ;
 	}
 	if (size == 3)
 	{
-		sort_three_by_val(a);
+		sort_three_by_val(a, opts);
 		return ;
 	}
 	while (stack_size(*a) > 3)
@@ -89,16 +88,16 @@ void	sort_small(t_stack **a, t_stack **b)
 		if (min_pos <= size / 2)
 		{
 			while (min_pos-- > 0)
-				ra(a);
+				ra(a, opts);
 		}
 		else
 		{
 			while (min_pos++ < size)
-				rra(a);
+				rra(a, opts);
 		}
-		pb(a, b);
+		pb(a, b, opts);
 	}
-	sort_three_by_val(a);
+	sort_three_by_val(a, opts);
 	while (*b)
-		pa(a, b);
+		pa(a, b, opts);
 }

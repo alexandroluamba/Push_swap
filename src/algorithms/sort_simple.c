@@ -6,7 +6,7 @@
 /*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:27:08 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 15:27:09 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 20:01:17 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	find_min_pos(t_stack *a)
 	return (min_pos);
 }
 
-void	sort_simple(t_stack **a, t_stack **b)
+void	sort_simple(t_stack **a, t_stack **b, t_opts *opts)
 {
 	int	size;
 	int	min_pos;
@@ -48,17 +48,17 @@ void	sort_simple(t_stack **a, t_stack **b)
 		if (min_pos <= size / 2)
 		{
 			while (min_pos-- > 0)
-				ra(a);
+				ra(a, opts);
 		}
 		else
 		{
 			while (min_pos++ < size)
-				rra(a);
+				rra(a, opts);
 		}
-		pb(a, b);
+		pb(a, b, opts);
 		size--;
 	}
-	sort_three(a);
+	sort_three(a, opts);
 	while (*b)
-		pa(a, b);
+		pa(a, b, opts);
 }

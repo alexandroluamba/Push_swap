@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   op_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:23:43 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 15:59:09 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/08/31 20:30:38 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sa(t_stack **a)
+void sa(t_stack **a, t_opts *opts)
 {
 	t_stack	*primero;
 	t_stack	*segundo;
@@ -25,9 +25,15 @@ void sa(t_stack **a)
 	segundo->next = primero;
 	*a = segundo;
 	write(1, "sa\n", 3);
+	if (opts != NULL)
+	{
+        opts->total_ops++;
+		opts->ops_sa++;
+		
+	}
 }
 
-void sb(t_stack **b)
+void sb(t_stack **b, t_opts *opts)
 {
 	t_stack	*primero;
 	t_stack	*segundo;
@@ -40,11 +46,22 @@ void sb(t_stack **b)
 	segundo->next = primero;
 	*b = segundo;
 	write(1, "sb\n", 3);
+	if (opts != NULL)
+	{
+        opts->total_ops++;
+		opts->ops_sb++;	
+	}
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, t_opts *opts)
 {
-	sa(a);
-	sb(b);
+	sa(a, NULL);
+	sb(b, NULL);
 	write(1, "ss\n", 3);
+	if (opts != NULL)
+	{
+        opts->total_ops++;
+		opts->ops_ss++;
+		
+	}
 }

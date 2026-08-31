@@ -14,6 +14,7 @@ SRCS        = main.c \
               $(SRC_DIR)/algorithms/sort_simple.c \
               $(SRC_DIR)/algorithms/sort_three.c \
               $(SRC_DIR)/algorithms/sort_small.c \
+			  $(SRC_DIR)/algorithms/bench.c \
               $(SRC_DIR)/operations/op_push.c \
               $(SRC_DIR)/operations/op_rotate.c \
               $(SRC_DIR)/operations/op_rotate_reverse.c \
@@ -26,10 +27,11 @@ SRCS        = main.c \
               $(SRC_DIR)/stack/stack_add_to_top.c \
               $(SRC_DIR)/stack/stack_new.c \
               $(SRC_DIR)/parsing/disorder.c \
+			  $(SRC_DIR)/parsing/ops_bench_init.c \
               $(SRC_DIR)/stack/stack_utils.c
 
 # Mapeia a localização dos objetos
-OBJS        = $(SRCS:%.c=$(OBJ_DIR)/%.o)
+OBJS        = $(SRCS:%.c=$(OBJ_DIR)/%.o) 
 
 RM          = rm -rf
 

@@ -6,7 +6,7 @@
 /*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:27:27 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 15:27:28 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 19:58:22 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	get_max_bits(t_stack *a)
 	return (max_bits);
 }
 
-void	sort_complex(t_stack **a, t_stack **b)
+void	sort_complex(t_stack **a, t_stack **b, t_opts *opts)
 {
 	int	i;
 	int	j;
@@ -49,14 +49,14 @@ void	sort_complex(t_stack **a, t_stack **b)
 		{
 			// Verifica se o bit 'i' do índice é 1 ou 0
 			if (((*a)->index >> i) & 1)
-				ra(a);
+				ra(a, opts);
 			else
-				pb(a, b);
+				pb(a, b, opts);
 			j++;
 		}
 		// Esvazia totalmente B de volta para A
 		while (*b)
-			pa(a, b);
+			pa(a, b, opts);
 		i++;
 	}
 }

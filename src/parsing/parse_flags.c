@@ -6,7 +6,7 @@
 /*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:17:55 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 18:11:27 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/08/31 19:05:51 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	parse_flags(int argc, char **argv, t_opts *opts)
 	opts->flag_complex = 0;
 	opts->flag_adaptive = 0;
 	opts->flag_bench = 0;
+	opts->total_ops = 0;
 	
 	i = 1;
 	while (i < argc && argv[i][0] == '-')

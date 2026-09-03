@@ -6,7 +6,7 @@
 /*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:39:56 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 21:58:05 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/09/03 16:59:29 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_opts
 	int	flag_bench;
 	int	start_index;
 	int	total_ops;
+	int	adaptive_used;
 	int	ops_sa;
 	int	ops_sb;
 	int	ops_ss;
@@ -84,5 +85,6 @@ int		find_max_pos(t_stack *stack);
 void	print_bench(t_opts *opts, double disorder_val);
 void	ft_putstr_fd(char *s, int fd);
 void	init_opts(t_opts *opts);
+void	ft_putnbr_fd(int n, int fd);
 
 #endif

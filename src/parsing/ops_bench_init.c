@@ -6,7 +6,7 @@
 /*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 20:37:40 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 22:32:35 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/09/03 15:21:28 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	init_opts(t_opts *opts)
 	opts->flag_simple = 0;
 	opts->flag_medium = 0;
 	opts->flag_complex = 0;
+	opts->adaptive_used = 0;
 	opts->start_index = 1;
 	opts->total_ops = 0;
 	opts->ops_sa = 0;

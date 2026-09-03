@@ -6,7 +6,7 @@
 /*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 16:07:41 by tmachado          #+#    #+#             */
-/*   Updated: 2026/08/31 22:14:11 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/09/03 21:29:08 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,22 +65,11 @@ static void	sort_three_by_val(t_stack **a, t_opts *opts)
 		rra(a, opts);
 }
 
-void	sort_small(t_stack **a, t_stack **b, t_opts *opts)
+static void	push_min_to_b(t_stack **a, t_stack **b, t_opts *opts)
 {
-	int	size;
 	int	min_pos;
+	int	size;
 
-	size = stack_size(*a);
-	if (size == 2 && (*a)->value > (*a)->next->value)
-	{
-		sa(a, opts);
-		return ;
-	}
-	if (size == 3)
-	{
-		sort_three_by_val(a, opts);
-		return ;
-	}
 	while (stack_size(*a) > 3)
 	{
 		min_pos = find_min_pos(*a);
@@ -97,6 +86,24 @@ void	sort_small(t_stack **a, t_stack **b, t_opts *opts)
 		}
 		pb(a, b, opts);
 	}
+}
+
+void	sort_small(t_stack **a, t_stack **b, t_opts *opts)
+{
+	int	size;
+
+	size = stack_size(*a);
+	if (size == 2 && (*a)->value > (*a)->next->value)
+	{
+		sa(a, opts);
+		return ;
+	}
+	if (size == 3)
+	{
+		sort_three_by_val(a, opts);
+		return ;
+	}
+	push_min_to_b(a, b, opts);
 	sort_three_by_val(a, opts);
 	while (*b)
 		pa(a, b, opts);

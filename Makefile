@@ -20,7 +20,10 @@ SRCS        = main.c \
               $(SRC_DIR)/operations/op_rotate_reverse.c \
               $(SRC_DIR)/operations/op_swap.c \
               $(SRC_DIR)/parsing/parsing.c \
-              $(SRC_DIR)/parsing/ft_split.c \
+              $(SRC_DIR)/libft/ft_split.c \
+              $(SRC_DIR)/libft/ft_atol.c \
+              $(SRC_DIR)/libft/ft_putnbr.c \
+              $(SRC_DIR)/libft/ft_putstr.c \
               $(SRC_DIR)/parsing/parse_flags.c \
               $(SRC_DIR)/stack/free_stack.c \
               $(SRC_DIR)/stack/is_sorted.c \

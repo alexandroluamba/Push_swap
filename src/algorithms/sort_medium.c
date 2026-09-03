@@ -6,7 +6,7 @@
 /*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:27:03 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 22:12:37 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/09/03 21:28:42 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,11 @@ static void	push_chunks_to_b(t_stack **a, t_stack **b,
 	}
 }
 
-void	sort_medium(t_stack **a, t_stack **b, t_opts *opts)
+static void	merge_back(t_stack **a, t_stack **b, t_opts *opts)
 {
-	int	size;
-	int	chunk_size;
 	int	max_pos;
+	int	size;
 
-	size = stack_size(*a);
-	if (size <= 100)
-		chunk_size = 15;
-	else
-		chunk_size = 30;
-	push_chunks_to_b(a, b, chunk_size, opts);
 	while (*b)
 	{
 		max_pos = find_max_pos(*b);
@@ -64,4 +57,18 @@ void	sort_medium(t_stack **a, t_stack **b, t_opts *opts)
 		}
 		pa(a, b, opts);
 	}
+}
+
+void	sort_medium(t_stack **a, t_stack **b, t_opts *opts)
+{
+	int	size;
+	int	chunk_size;
+
+	size = stack_size(*a);
+	if (size <= 100)
+		chunk_size = 15;
+	else
+		chunk_size = 30;
+	push_chunks_to_b(a, b, chunk_size, opts);
+	merge_back(a, b, opts);
 }

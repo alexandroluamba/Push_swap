@@ -6,7 +6,7 @@
 /*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:39:56 by tmachado          #+#    #+#             */
-/*   Updated: 2026/09/03 16:59:29 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/09/03 21:49:14 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,43 +48,43 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-t_stack	*new_node(int value);
-void	add_to_top(t_stack **stack, t_stack *node);
-int		stack_size(t_stack *stack);
-int		parse_flags(int argc, char **argv, t_opts *opts);
-int		is_num_valid(char *str);
-int		tem_duplicado(t_stack *a, int n);
-long	atol(const char *str);
-void	print_stack(t_stack *stack);
-t_stack	*build_stack(char **argv, int start, int argc);
-t_stack	*ft_lstlast(t_stack *lst);
-void	sa(t_stack **a, t_opts *opts);
-void	sb(t_stack **b, t_opts *opts);
-void	ss(t_stack **a, t_stack **b, t_opts *opts);
-void	pa(t_stack **a, t_stack **b, t_opts *opts);
-void	pb(t_stack **a, t_stack **b, t_opts *opts);
-void	ra(t_stack **a, t_opts *opts);
-void	rb(t_stack **b, t_opts *opts);
-void	rr(t_stack **a, t_stack **b, t_opts *opts);
-void	rra(t_stack **a, t_opts *opts);
-void	rrb(t_stack **b, t_opts *opts);
-void	rrr(t_stack **a, t_stack **b, t_opts *opts);
-void	index_stack(t_stack *a);
-double	compute_disorder(t_stack *a);
-void	sort_simple(t_stack **a, t_stack **b, t_opts *opts);
-void	sort_medium(t_stack **a, t_stack **b, t_opts *opts);
-void	sort_complex(t_stack **a, t_stack **b, t_opts *opts);
-void	sort_adaptive(t_stack **a, t_stack **b, t_opts *opts);
-void	sort_three(t_stack **a, t_opts *opts);
-void	sort_small(t_stack **a, t_stack **b, t_opts *opts);
-void	free_stack(t_stack **stack);
-void	free_matrix(char **lst);
-char	**ft_split(char const *s, char c);
-int		is_sorted(t_stack *stack);
-int		find_max_pos(t_stack *stack);
-void	print_bench(t_opts *opts, double disorder_val);
-void	ft_putstr_fd(char *s, int fd);
-void	init_opts(t_opts *opts);
-void	ft_putnbr_fd(int n, int fd);
+t_stack			*new_node(int value);
+void			add_to_top(t_stack **stack, t_stack *node);
+int				stack_size(t_stack *stack);
+int				parse_flags(int argc, char **argv, t_opts *opts);
+int				is_num_valid(char *str);
+int				tem_duplicado(t_stack *a, int n);
+long			ft_atol(const char *str);
+t_stack			*build_stack(char **argv, int start, int argc);
+t_stack			*ft_lstlast(t_stack *lst);
+void			sa(t_stack **a, t_opts *opts);
+void			sb(t_stack **b, t_opts *opts);
+void			ss(t_stack **a, t_stack **b, t_opts *opts);
+void			pa(t_stack **a, t_stack **b, t_opts *opts);
+void			pb(t_stack **a, t_stack **b, t_opts *opts);
+void			ra(t_stack **a, t_opts *opts);
+void			rb(t_stack **b, t_opts *opts);
+void			rr(t_stack **a, t_stack **b, t_opts *opts);
+void			rra(t_stack **a, t_opts *opts);
+void			rrb(t_stack **b, t_opts *opts);
+void			rrr(t_stack **a, t_stack **b, t_opts *opts);
+void			index_stack(t_stack *a);
+double			compute_disorder(t_stack *a);
+void			sort_simple(t_stack **a, t_stack **b, t_opts *opts);
+void			sort_medium(t_stack **a, t_stack **b, t_opts *opts);
+void			sort_complex(t_stack **a, t_stack **b, t_opts *opts);
+void			sort_adaptive(t_stack **a, t_stack **b, t_opts *opts);
+void			sort_three(t_stack **a, t_opts *opts);
+void			sort_small(t_stack **a, t_stack **b, t_opts *opts);
+void			free_stack(t_stack **stack);
+void			free_matrix(char **lst);
+char			**ft_split(char const *s, char c);
+int				is_sorted(t_stack *stack);
+int				find_max_pos(t_stack *stack);
+void			print_bench(t_opts *opts, double disorder_val);
+const char		*get_strategy_name(t_opts *opts);
+void			ft_putstr_fd(char *s, int fd);
+void			ft_putnbr_fd(int n, int fd);
+void			init_opts(t_opts *opts);
 
 #endif

@@ -6,7 +6,6 @@ CFLAGS      = -Wall -Wextra -Werror -Iincludes
 SRC_DIR     = src
 OBJ_DIR     = obj
 
-# main.c está na raiz, os restantes estão dentro de src/
 SRCS        = main.c \
               $(SRC_DIR)/algorithms/sort_adaptive.c \
               $(SRC_DIR)/algorithms/sort_complex.c \
@@ -33,7 +32,6 @@ SRCS        = main.c \
 			  $(SRC_DIR)/parsing/ops_bench_init.c \
               $(SRC_DIR)/stack/stack_utils.c
 
-# Mapeia a localização dos objetos
 OBJS        = $(SRCS:%.c=$(OBJ_DIR)/%.o) 
 
 RM          = rm -rf

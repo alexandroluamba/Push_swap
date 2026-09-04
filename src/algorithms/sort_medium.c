@@ -6,7 +6,7 @@
 /*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:27:03 by amateus-          #+#    #+#             */
-/*   Updated: 2026/09/03 21:28:42 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/09/04 15:34:16 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ void	sort_medium(t_stack **a, t_stack **b, t_opts *opts)
 
 	size = stack_size(*a);
 	if (size <= 100)
-		chunk_size = 15;
+		chunk_size = 19;
 	else
-		chunk_size = 30;
+		chunk_size = 45;
 	push_chunks_to_b(a, b, chunk_size, opts);
 	merge_back(a, b, opts);
 }

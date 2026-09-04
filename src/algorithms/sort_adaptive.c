@@ -6,7 +6,7 @@
 /*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:26:45 by amateus-          #+#    #+#             */
-/*   Updated: 2026/09/03 23:33:17 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/09/04 15:17:22 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	sort_adaptive(t_stack **a, t_stack **b, t_opts *opts)
 
 	if (!a || !*a || is_sorted(*a))
 		return ;
-	 if (stack_size(*a) <= 5)
-	 {
-	 	opts->adaptive_used = 1;
-	 	sort_small(a, b, opts);
-	 	return ;
-	 }
+	if (stack_size(*a) <= 5)
+	{
+		opts->adaptive_used = 1;
+		sort_small(a, b, opts);
+		return ;
+	}
 	disorder = compute_disorder(*a);
 	if (disorder < 0.2)
 	{

@@ -1,0 +1,14 @@
+
+push_swap
+checker
+checker_linux
+*.o
+*.a
+obj/
+objs/
+.DS_Store
+*.swp
+*~
+.vscode/
+.idea/
+*.txt

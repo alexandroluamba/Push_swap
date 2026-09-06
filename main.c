@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:04:48 by tmachado          #+#    #+#             */
-/*   Updated: 2026/09/03 17:54:27 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/09/06 18:41:22 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static t_stack	*init_and_build(int argc, char **argv, t_opts *opts)
 {
 	t_stack	*a;
 
-	init_opts(opts);
 	if (argc < 2)
 		return (NULL);
 	if (!parse_flags(argc, argv, opts))
@@ -36,9 +35,7 @@ static t_stack	*init_and_build(int argc, char **argv, t_opts *opts)
 		ft_putstr_fd("Error\n", 2);
 		return (NULL);
 	}
-	if (opts->start_index >= argc)
-		return (NULL);
-	a = build_stack(argv, opts->start_index, argc);
+	a = build_stack(argv, 1, argc);
 	if (!a)
 		ft_putstr_fd("Error\n", 2);
 	return (a);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:03:28 by amateus-          #+#    #+#             */
-/*   Updated: 2026/09/03 21:27:48 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/09/06 18:45:36 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,20 @@ static int	process_split_args(t_stack **a, char **split_args)
 	int	j;
 
 	if (!split_args || !split_args[0])
-	{
-		free_matrix(split_args);
-		return (0);
-	}
+		return (free_matrix(split_args), 0);
 	j = 0;
 	while (split_args[j])
 		j++;
 	j--;
 	while (j >= 0)
 	{
-		if (!parse_and_push(a, split_args[j]))
+		if (split_args[j][0] == '-' && split_args[j][1] == '-')
 		{
-			free_matrix(split_args);
-			return (0);
+			j--;
+			continue ;
 		}
+		if (!parse_and_push(a, split_args[j]))
+			return (free_matrix(split_args), 0);
 		j--;
 	}
 	free_matrix(split_args);
@@ -63,6 +62,11 @@ t_stack	*build_stack(char **argv, int start, int argc)
 	i = argc - 1;
 	while (i >= start)
 	{
+		if (argv[i][0] == '-' && argv[i][1] == '-')
+		{
+			i--;
+			continue ;
+		}
 		split_args = ft_split(argv[i], ' ');
 		if (!process_split_args(&a, split_args))
 		{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_flags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:17:55 by tmachado          #+#    #+#             */
-/*   Updated: 2026/09/03 21:25:49 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/09/06 18:49:43 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,6 @@ static int	ft_strcmp(const char *s1, const char *s2)
 	while (s1[i] && s1[i] == s2[i])
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
-
-static	void	init_flags(t_opts *opts)
-{
-	opts->flag_simple = 0;
-	opts->flag_medium = 0;
-	opts->flag_complex = 0;
-	opts->flag_adaptive = 0;
-	opts->flag_bench = 0;
-	opts->total_ops = 0;
 }
 
 static	int	match_flag(char	*arg, t_opts *opts)
@@ -54,17 +44,17 @@ int	parse_flags(int argc, char **argv, t_opts *opts)
 	int	i;
 	int	algo_count;
 
-	init_flags(opts);
+	init_opts(opts);
 	i = 1;
-	while (i < argc && argv[i][0] == '-')
+	while (i < argc)
 	{
-		if (is_num_valid(argv[i]))
-			break ;
-		if (!match_flag(argv[i], opts))
-			return (0);
+		if (argv[i][0] == '-' && argv[i][1] == '-')
+		{
+			if (!match_flag(argv[i], opts))
+				return (0);
+		}
 		i++;
 	}
-	opts->start_index = i;
 	algo_count = opts->flag_simple + opts->flag_medium
 		+ opts->flag_complex + opts->flag_adaptive;
 	if (algo_count > 1)

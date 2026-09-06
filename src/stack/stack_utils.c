@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:04:03 by amateus-          #+#    #+#             */
-/*   Updated: 2026/08/31 22:49:58 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/09/06 17:02:29 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	print_stack(t_stack *stack)
 		return ;
 	while (stack)
 	{
-		printf("%d\n", stack->value);
+		ft_putnbr_fd(stack->value, 1);
+		write (1, "\n", 1);
 		stack = stack->next;
 	}
 }

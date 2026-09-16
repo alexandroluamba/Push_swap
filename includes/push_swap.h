@@ -6,7 +6,7 @@
 /*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:39:56 by tmachado          #+#    #+#             */
-/*   Updated: 2026/09/16 10:35:07 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/09/16 10:48:21 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ double			compute_disorder(t_stack *a);
 void			sort_medium(t_stack **a, t_stack **b, t_opts *opts);
 void			sort_complex(t_stack **a, t_stack **b, t_opts *opts);
 void			sort_adaptive(t_stack **a, t_stack **b, t_opts *opts);
-void			sort_three(t_stack **a, t_opts *opts);
 void			sort_small(t_stack **a, t_stack **b, t_opts *opts);
 void			free_stack(t_stack **stack);
 void			free_matrix(char **lst);

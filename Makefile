@@ -10,7 +10,6 @@ SRCS        = main.c \
               $(SRC_DIR)/algorithms/sort_adaptive.c \
               $(SRC_DIR)/algorithms/sort_complex.c \
               $(SRC_DIR)/algorithms/sort_medium.c \
-              $(SRC_DIR)/algorithms/sort_three.c \
               $(SRC_DIR)/algorithms/sort_small.c \
               $(SRC_DIR)/algorithms/bench.c \
               $(SRC_DIR)/operations/op_push.c \

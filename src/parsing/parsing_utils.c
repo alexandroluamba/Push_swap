@@ -6,7 +6,7 @@
 /*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/03 17:55:44 by tmachado          #+#    #+#             */
-/*   Updated: 2026/09/03 18:22:25 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/09/16 10:33:40 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	is_num_valid(char *str)
 	return (1);
 }
 
-int	tem_duplicado(t_stack *a, int n)
+int	is_duplicate(t_stack *a, int n)
 {
 	while (a)
 	{

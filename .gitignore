@@ -12,3 +12,4 @@ objs/
 .vscode/
 .idea/
 *.txt
+*.sh

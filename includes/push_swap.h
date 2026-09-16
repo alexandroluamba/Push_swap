@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:39:56 by tmachado          #+#    #+#             */
-/*   Updated: 2026/09/06 18:41:58 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/09/16 10:35:07 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void			add_to_top(t_stack **stack, t_stack *node);
 int				stack_size(t_stack *stack);
 int				parse_flags(int argc, char **argv, t_opts *opts);
 int				is_num_valid(char *str);
-int				tem_duplicado(t_stack *a, int n);
+int				is_duplicate(t_stack *a, int n);
 long			ft_atol(const char *str);
 t_stack			*build_stack(char **argv, int start, int argc);
 t_stack			*ft_lstlast(t_stack *lst);
@@ -69,7 +69,6 @@ void			rrb(t_stack **b, t_opts *opts);
 void			rrr(t_stack **a, t_stack **b, t_opts *opts);
 void			index_stack(t_stack *a);
 double			compute_disorder(t_stack *a);
-void			sort_simple(t_stack **a, t_stack **b, t_opts *opts);
 void			sort_medium(t_stack **a, t_stack **b, t_opts *opts);
 void			sort_complex(t_stack **a, t_stack **b, t_opts *opts);
 void			sort_adaptive(t_stack **a, t_stack **b, t_opts *opts);

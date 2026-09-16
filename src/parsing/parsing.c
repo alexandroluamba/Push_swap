@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:03:28 by amateus-          #+#    #+#             */
-/*   Updated: 2026/09/06 18:45:36 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/09/16 10:34:16 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	parse_and_push(t_stack **a, char *str)
 	num = ft_atol(str);
 	if (num < INT_MIN || num > INT_MAX)
 		return (0);
-	if (tem_duplicado(*a, (int)num))
+	if (is_duplicate(*a, (int)num))
 		return (0);
 	add_to_top(a, new_node((int)num));
 	return (1);

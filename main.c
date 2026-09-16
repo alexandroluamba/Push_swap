@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:04:48 by tmachado          #+#    #+#             */
-/*   Updated: 2026/09/06 18:41:22 by amateus-         ###   ########.fr       */
+/*   Updated: 2026/09/16 09:31:51 by tmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	execute_strategy(t_stack **a, t_stack **b, t_opts *opts)
 {
 	if (opts->flag_simple)
-		sort_simple(a, b, opts);
+		sort_small(a, b, opts);
 	else if (opts->flag_medium)
 		sort_medium(a, b, opts);
 	else if (opts->flag_complex)

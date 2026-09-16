@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_adaptive.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmachado <tmachado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 15:26:45 by amateus-          #+#    #+#             */
-/*   Updated: 2026/09/16 09:22:37 by tmachado         ###   ########.fr       */
+/*   Updated: 2026/09/16 21:07:34 by amateus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sort_adaptive(t_stack **a, t_stack **b, t_opts *opts)
 
 	if (!a || !*a || is_sorted(*a))
 		return ;
-	if (stack_size(*a) <= 5)
+	if (stack_size(*a) <= 10)
 	{
 		opts->adaptive_used = 1;
 		sort_small(a, b, opts);

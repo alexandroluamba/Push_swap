@@ -1,15 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parse_flags.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: amateus- <amateus-@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/31 15:17:55 by tmachado          #+#    #+#             */
-/*   Updated: 2026/09/06 18:49:43 by amateus-         ###   ########.fr       */
+/*    ______      Ficheiro : bench.c
+/*   |___  /      Autor    : Alexandro Luamba
+/*      / /       Criado   : 06/11/2026
+/*     / /        Escola   : 42 Luanda
+/*    / /                                                                     */
+/*   /_/                                                                      */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
 static int	ft_strcmp(const char *s1, const char *s2)
